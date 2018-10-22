@@ -1,5 +1,7 @@
 package hr.nikola.utils;
 
+import java.sql.Date;
+
 public class StringUtils {
 	
 	
@@ -10,6 +12,16 @@ public class StringUtils {
             pom = pom + " ";
         }
         return pom;
+    }
+    
+    public static boolean isDate(String s){
+        try{
+        	s=s.trim();
+            Date.valueOf(s);
+        }catch(Exception e){
+            return false;
+        }
+        return true;
     }
 
 }
