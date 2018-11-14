@@ -1,9 +1,11 @@
 package hr.nikola.zip;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -78,6 +80,37 @@ public class CreateZip {
             e.printStackTrace();
         }
 
+    }
+    
+    /**
+     * 
+     * @param p_dokumenti
+     * @param p_nazivDatoteke
+     * @return
+     * @throws IOException
+     */
+    private DokumentZaZip zipDokuments( final List<DokumentZaZip> p_dokumenti, final String p_nazivDatoteke ) throws IOException {
+        if ( p_dokumenti != null && !p_dokumenti.isEmpty() ) {
+        	
+            final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            final ZipOutputStream zos = new ZipOutputStream( baos );
+            
+            for ( final DokumentZaZip dokument : p_dokumenti ) {
+                final ZipEntry entry = new ZipEntry( dokument.getNazivDatoteke() );
+                final byte[] sadrzajDoc = dokument.getSadrzajDoc();
+                entry.setSize( sadrzajDoc.length );
+                zos.putNextEntry( entry );
+                zos.write( sadrzajDoc );
+            }
+            zos.closeEntry();
+            zos.close();
+            final byte[] byteArray = baos.toByteArray();
+            final DokumentZaZip result = new DokumentZaZip();
+            result.setNazivDatoteke( p_nazivDatoteke );
+            result.setSadrzajDoc( byteArray );
+            return result;
+        }
+        return null;
     }
 
 }
