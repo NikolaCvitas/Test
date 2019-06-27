@@ -21,6 +21,8 @@ public class TestA {
 		compareLongs();
 		
 		seasons();
+		
+		getString("RF123456789HR");
 
 	}
 	
@@ -56,6 +58,24 @@ public class TestA {
 
         	System.out.println("AAAAAAAAAAAAAAAA");
          }
+	}
+	
+	
+	private static void getString(String input) {
+		
+		if(input !=null) {
+			
+			input= input.replace("RF", "");
+			input= input.replace("HR", "");
+			
+			input = input.trim();
+			
+			System.out.println("input :"+input);
+			
+			
+		}
+		
+		
 	}
 	
 
