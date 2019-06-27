@@ -20,6 +20,8 @@ public class ExamplePane {
 	
 	private static final int MULTIPLE = 3;
 	
+	private static boolean FLAG = true;
+	
 	
 	
 	public final static boolean showConfirmDialogWithTimeout(Object params, String title, int timeout_ms) {
@@ -61,12 +63,12 @@ public class ExamplePane {
 	    boolean result = showConfirmDialogWithTimeout(lbmsg, "Izvoz u PDF", MULTIPLE  * TIME);
 
 	    if (result == false) {
-	    	System.out.println(message + " cancel is selected");
-	        
+	    	FLAG = false;
+	    	System.out.println(message + " cancel is selected FLAG:"+FLAG);
 	    }
 	    else {
-	    	System.out.println(message + " timeout or okay is selected");
-	       
+	    	FLAG = true;
+	    	System.out.println(message + " timeout or okay is selected FLAG:"+FLAG);
 	    }
 	    
 	}
@@ -86,6 +88,14 @@ public class ExamplePane {
 		String name4 ="ABC4";
 		
 		lista.add(name4);
+		
+		String name5 ="ABC5";
+		
+		lista.add(name5);
+		
+		String name6 ="ABC6";
+		
+		lista.add(name6);
 	}
 	    
 	    
@@ -93,8 +103,14 @@ public class ExamplePane {
 
 	    	fillList();
 	    	
+	    	int i = 0;
+	    	
 	    	for(String name : lista) {
-	    		start();
+	    		i++;
+	    		if(FLAG) {
+	    			System.out.println(" iteration number: "+i);
+		    		start();	
+	    		}
 	    	}
 	    	
 	    }
