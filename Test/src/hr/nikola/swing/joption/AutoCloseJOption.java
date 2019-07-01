@@ -20,16 +20,19 @@ public class AutoCloseJOption {
         frame1.setSize(100, 100);
         frame1.setLocation(100, 100);
 
-        JButton button = new JButton("Prekini akciju");
+        JButton button = new JButton("Otvori");
         frame1.getContentPane().add(button);
 
         button.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane pane = new JOptionPane("Message", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane pane = new JOptionPane("U tijeku je preuzimanje", JOptionPane.INFORMATION_MESSAGE);
                 JDialog dialog = pane.createDialog(null, "Preuzmi PDF");
                 
+                JButton buttonP = new JButton("Prekini akciju");
+          //      pane.a
+              //  pane.add
                 dialog.setModal(false);
                 dialog.setVisible(true);
 
