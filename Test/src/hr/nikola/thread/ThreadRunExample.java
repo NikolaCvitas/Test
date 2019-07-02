@@ -48,7 +48,7 @@ public class ThreadRunExample {
 	
 	public static ArrayList<String> getList() {
 		
-		ArrayList list = new ArrayList();
+		ArrayList<String> list = new ArrayList<String>();
 		
 		list.add("ABC");
 		list.add("EFG");
