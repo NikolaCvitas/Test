@@ -2,6 +2,9 @@ package hr.nikola.thread;
 
 import java.util.ArrayList;
 
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 public class PdfMergeRunnable implements Runnable {
 	
 	private ArrayList<String> list;
@@ -32,6 +35,14 @@ public class PdfMergeRunnable implements Runnable {
             Thread.sleep(1000);
 
             System.out.println("PdfMergeRunnable name:"+name);
+            
+            final JOptionPane op = new JOptionPane( name, JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[] {}, null );
+            
+            String dialogTitle = "dialogTitle";
+            final JDialog dialog = op.createDialog( dialogTitle );
+            dialog.setModal( true );
+          //  dialog.setDefaultCloseOperation( JDialog.DO_NOTHING_ON_CLOSE );
+            dialog.setVisible( true );
             
             if(list != null) {
             	for(String name :list) {
