@@ -1,6 +1,7 @@
 package hr.nikola.utils;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class StringUtils {
 	
@@ -23,5 +24,23 @@ public class StringUtils {
         }
         return true;
     }
+    
+    
+	public static ArrayList<String> getList() {
+		
+		ArrayList<String> list = new ArrayList<String>();
+		
+		list.add("ABC");
+		list.add("EFG");
+		list.add("HIJ");
+		list.add("FOO");
+		list.add("ZOO");
+		list.add("ROO");
+		
+		
+		return list;
+		
+		
+	}
 
 }

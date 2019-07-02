@@ -6,11 +6,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent; 
 import java.awt.event.ActionListener; 
 import java.awt.event.WindowAdapter; 
-import java.awt.event.WindowEvent; 
+import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 import java.util.List; 
 import java.util.concurrent.ExecutionException; 
 
-import javax.swing.*; 
+import javax.swing.*;
+
+import hr.nikola.utils.StringUtils; 
 
 
 public class SwingWorkerSample 
@@ -51,7 +54,7 @@ public class SwingWorkerSample
 				System.out.println("Button clicked, thread started"); 
 				
 				
-				startThread(); 
+				startThread(StringUtils.getList()); 
 			} 
 			
 		}); 
@@ -60,14 +63,20 @@ public class SwingWorkerSample
 		mainFrame.setVisible(true); 
 	} 
 	
-	private static void startThread() 
+	private static void startThread(ArrayList<String> arrayList) 
 	{ 
+		
+		
+		System.out.println("arrayList.toString(): "+arrayList.toString());
 
 		SwingWorker sw1 = new SwingWorker() 
 		{ 
 
 			@Override
 			protected String doInBackground() throws Exception 
+			
+			//arrayList.size();
+
 			{ 
 				// define what thread will do here 
 				for ( int i=10; i>=0; i-- ) 
