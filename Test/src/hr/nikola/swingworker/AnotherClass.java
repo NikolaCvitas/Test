@@ -5,25 +5,18 @@ import java.util.ArrayList;
 
 public class AnotherClass{
 	
-    public static String doSomething(String ipRange, ArrayList<String> nmapPorts) {
+    public static String doSomething(String ipRange, ArrayList<String> list) throws IOException {
         //do some stuff with the strings
-    	String cmds="";
+
     	String aString ="";
-        try{
-            
-			ProcessBuilder builder = new ProcessBuilder("someexe", "flag", cmds,
-            "&cd");
-            builder.redirectErrorStream(true);
-            Process pr = builder.start();
 
-			//do some stuff with the stream.
-
-            aString = pr.toString();
-            
-        }catch (IOException e){
-        	e.printStackTrace();
+        
+        for(String str : list ) {
+        	
+        	aString =aString.concat(str);
         }
 		
+        System.out.println("AnotherClass.doSomething "+aString);
         return aString;
     }
     
